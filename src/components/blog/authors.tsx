@@ -1,11 +1,11 @@
-import type { Author } from '~/.contentlayer/generated'
-import { Image } from '~/components/ui/image'
-import { Link } from '~/components/ui/link'
-import type { CoreContent } from '~/types/data'
+import { Image } from "@/components/ui/image";
+import { Link } from "@/components/ui/link";
+import type { CoreContent } from "@/types/data";
+import { Author } from "contentlayer/generated";
 
 interface AuthorsProps {
-  authors: CoreContent<Author>[]
-  className?: string
+  authors: CoreContent<Author>[];
+  className?: string;
 }
 
 export function Authors({ authors, className }: AuthorsProps) {
@@ -36,7 +36,7 @@ export function Authors({ authors, className }: AuthorsProps) {
                       className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                     >
                       {/* {twitter.replace('https://twitter.com/', '@').replace('https://x.com/', '@')} */}
-                      {x.replace(/https:\/\/(x|twitter)\.com\//, '@')}
+                      {x.replace(/https:\/\/(x|twitter)\.com\//, "@")}
                     </Link>
                   )}
                 </dd>
@@ -46,5 +46,5 @@ export function Authors({ authors, className }: AuthorsProps) {
         </ul>
       </dd>
     </dl>
-  )
+  );
 }

@@ -1,16 +1,25 @@
-import { clsx } from 'clsx'
-import { ChevronRight } from 'lucide-react'
-import { Link } from '~/components/ui/link'
+import { clsx } from "clsx";
+import { ChevronRight } from "lucide-react";
+import { Link } from "@/components/ui/link";
 
 type TocItem = {
-  value: string
-  url: string
-  depth: number
-}
+  value: string;
+  url: string;
+  depth: number;
+};
 
-export function TableOfContents({ toc, className }: { toc: TocItem[]; className?: string }) {
+export function TableOfContents({
+  toc,
+  className,
+}: {
+  toc: TocItem[];
+  className?: string;
+}) {
   return (
-    <details className={clsx('space-y-4 [&_.chevron-right]:open:rotate-90', className)} open>
+    <details
+      className={clsx("space-y-4 [&_.chevron-right]:open:rotate-90", className)}
+      open
+    >
       <summary className="flex cursor-pointer items-center gap-1 marker:content-none">
         <ChevronRight
           strokeWidth={1.5}
@@ -31,5 +40,5 @@ export function TableOfContents({ toc, className }: { toc: TocItem[]; className?
         ))}
       </ul>
     </details>
-  )
+  );
 }

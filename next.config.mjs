@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  experimental: {
+    outputFileTracingExcludes: {
+      files: [],
+      directories: ["./src/generated/prisma"],
+    },
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,

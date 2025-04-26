@@ -76,7 +76,7 @@ function createTagCount(documents: any[]) {
   console.log("🏷️. Tag list generated.");
 }
 
-function createSearchIndex(allBlogs: any[]) {
+function createSearchIndex(allBlogs: any) {
   const searchDocsPath = SITE_METADATA.search.kbarConfigs.searchDocumentsPath;
   if (searchDocsPath) {
     writeFileSync(
@@ -178,7 +178,7 @@ export const Author = defineDocumentType(() => ({
 }));
 
 export default makeSource({
-  contentDirPath: "data",
+  contentDirPath: "src/data",
   documentTypes: [Blog, Snippet, Author],
   mdx: {
     cwd: process.cwd(),

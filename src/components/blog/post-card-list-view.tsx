@@ -1,36 +1,40 @@
-import clsx from 'clsx'
-import type { Blog } from 'contentlayer/generated'
-import { TagsList } from '~/components/blog/tags'
-import { GritBackground } from '~/components/ui/grit-background'
-import { GrowingUnderline } from '~/components/ui/growing-underline'
-import { Image } from '~/components/ui/image'
-import { Link } from '~/components/ui/link'
-import { SITE_METADATA } from '~/data/site-metadata'
-import type { CoreContent } from '~/types/data'
-import { formatDate } from '~/utils/misc'
+import clsx from "clsx";
+import type { Blog } from "contentlayer/generated";
+import { TagsList } from "@/components/blog/tags";
+import { GritBackground } from "@/components/ui/grit-background";
+import { GrowingUnderline } from "@/components/ui/growing-underline";
+import { Image } from "@/components/ui/image";
+import { Link } from "@/components/ui/link";
+import { SITE_METADATA } from "@/data/site-metadata";
+import type { CoreContent } from "@/types/data";
+import { formatDate } from "@/utils/misc";
 
 export function PostCardListView({
   post,
   loading,
 }: {
-  post: CoreContent<Blog>
-  loading?: 'lazy' | 'eager'
+  post: CoreContent<Blog>;
+  loading?: "lazy" | "eager";
 }) {
-  let { slug, date, title, summary, tags, images, readingTime } = post
+  const { slug, date, title, summary, tags, images, readingTime } = post;
   return (
     <article>
       <div className="flex flex-col gap-2 space-y-3 md:flex-row md:gap-8">
         <Link
           href={`/blog/${slug}`}
           className={clsx([
-            'relative block shrink-0',
-            'h-auto w-full md:h-80 md:w-72',
-            'pb-3 pl-0 pr-3 pt-0',
-            'transition-all ease-in-out hover:pb-2 hover:pl-1 hover:pr-2 hover:pt-1',
+            "relative block shrink-0",
+            "h-auto w-full md:h-80 md:w-72",
+            "pb-3 pl-0 pr-3 pt-0",
+            "transition-all ease-in-out hover:pb-2 hover:pl-1 hover:pr-2 hover:pt-1",
           ])}
         >
           <Image
-            src={images && images.length > 0 ? images[0] : SITE_METADATA.socialBanner}
+            src={
+              images && images.length > 0
+                ? images[0]
+                : SITE_METADATA.socialBanner
+            }
             alt={title}
             width={500}
             height={500}
@@ -39,8 +43,8 @@ export function PostCardListView({
           />
           <GritBackground
             className={clsx([
-              'bottom-0 left-3 right-0 top-3',
-              'rounded-xl border-2 border-gray-800 dark:border-gray-400',
+              "bottom-0 left-3 right-0 top-3",
+              "rounded-xl border-2 border-gray-800 dark:border-gray-400",
             ])}
           />
         </Link>
@@ -56,8 +60,14 @@ export function PostCardListView({
                 </dd>
               </dl>
               <h2 className="pb-1 text-xl font-bold tracking-tight md:text-2xl">
-                <Link href={`/blog/${slug}`} className="text-gray-900 dark:text-gray-100">
-                  <GrowingUnderline data-umami-event="latest-post-title" duration={500}>
+                <Link
+                  href={`/blog/${slug}`}
+                  className="text-gray-900 dark:text-gray-100"
+                >
+                  <GrowingUnderline
+                    data-umami-event="latest-post-title"
+                    duration={500}
+                  >
                     {title}
                   </GrowingUnderline>
                 </Link>
@@ -82,5 +92,5 @@ export function PostCardListView({
         </div>
       </div>
     </article>
-  )
+  );
 }

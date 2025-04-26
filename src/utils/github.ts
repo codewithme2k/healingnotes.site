@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { graphql, type GraphQlQueryResponseData } from "@octokit/graphql";
 import type { GithubRepository } from "@/types/data";
 
@@ -83,14 +84,16 @@ export async function fetchRepoData({
         repository.defaultBranchRef.target.history.edges[0].node;
       delete repository.defaultBranchRef;
     }
-    repository.languages = repository.languages.edges.map((edge) => {
-      return {
-        color: edge.node.color,
-        name: edge.node.name,
-      };
-    });
+    repository.languages = repository.languages.edges.map(
+      (edge: { node: { color: any; name: any } }) => {
+        return {
+          color: edge.node.color,
+          name: edge.node.name,
+        };
+      }
+    );
     repository.repositoryTopics = repository.repositoryTopics.edges.map(
-      (edge) => edge.node.topic.name
+      (edge: { node: { topic: { name: any } } }) => edge.node.topic.name
     );
     return repository;
   } catch (err) {

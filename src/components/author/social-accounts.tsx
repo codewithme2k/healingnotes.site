@@ -1,11 +1,11 @@
-import { clsx } from 'clsx'
-import { Facebook, Github, Linkedin, Mail, Youtube } from 'lucide-react'
-import { SITE_METADATA } from '~/data/site-metadata'
-import X from '~/icons/x.svg'
+import { clsx } from "clsx";
+import { Facebook, Github, Linkedin, Mail, Youtube } from "lucide-react";
+import { SITE_METADATA } from "@/data/site-metadata";
+import X from "@/icons/x.svg";
 
 export function SocialAccounts({ className }: { className?: string }) {
   return (
-    <div className={clsx('flex items-center space-x-4', className)}>
+    <div className={clsx("flex items-center space-x-4", className)}>
       <a
         href={SITE_METADATA.github}
         target="_blank"
@@ -67,5 +67,5 @@ export function SocialAccounts({ className }: { className?: string }) {
         <Youtube strokeWidth={1.5} />
       </a>
     </div>
-  )
+  );
 }

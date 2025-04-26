@@ -7,7 +7,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { Fragment } from "react";
-import XIcon from "~/icons/x.svg";
+import XIcon from "@/icons/x.svg";
 import { Twemoji } from "@/components/ui/twemoji";
 
 function getAccountHandle(url = "") {

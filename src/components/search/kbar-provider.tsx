@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import type { Action } from "kbar";
@@ -26,15 +27,16 @@ export function KBarSearchProvider({
   configs: KBarSearchProps;
   children: ReactNode;
 }) {
-  let { searchDocumentsPath, defaultActions, onSearchDocumentsLoad } = configs;
-  let router = useRouter();
-  let [searchActions, setSearchActions] = useState<Action[]>([]);
-  let [dataLoaded, setDataLoaded] = useState(false);
+  const { searchDocumentsPath, defaultActions, onSearchDocumentsLoad } =
+    configs;
+  const router = useRouter();
+  const [searchActions, setSearchActions] = useState<Action[]>([]);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
     function mapPosts(posts: CoreContent<MDXDocument>[]) {
-      let actions: Action[] = [];
-      for (let post of posts) {
+      const actions: Action[] = [];
+      for (const post of posts) {
         actions.push({
           id: post.path,
           name: post.title,
@@ -48,14 +50,14 @@ export function KBarSearchProvider({
     }
     async function fetchData() {
       if (searchDocumentsPath) {
-        let url =
+        const url =
           searchDocumentsPath.indexOf("://") > 0 ||
           searchDocumentsPath.indexOf("//") === 0
             ? searchDocumentsPath
             : new URL(searchDocumentsPath, window.location.origin);
-        let res = await fetch(url);
-        let json = await res.json();
-        let actions = onSearchDocumentsLoad
+        const res = await fetch(url);
+        const json = await res.json();
+        const actions = onSearchDocumentsLoad
           ? onSearchDocumentsLoad(json)
           : mapPosts(json);
         setSearchActions(actions);

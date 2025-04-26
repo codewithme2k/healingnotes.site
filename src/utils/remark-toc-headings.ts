@@ -1,36 +1,39 @@
-import { slug } from 'github-slugger'
-import { toString } from 'mdast-util-to-string'
-import { remark } from 'remark'
-import type { Parent } from 'unist'
-import { visit } from 'unist-util-visit'
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { slug } from "github-slugger";
+import { toString } from "mdast-util-to-string";
+import { remark } from "remark";
+import type { Parent } from "unist";
+import { visit } from "unist-util-visit";
 
 export type TocItem = {
-  value: string
-  url: string
-  depth: number
-}
+  value: string;
+  url: string;
+  depth: number;
+};
 
-export type Toc = TocItem[]
+export type Toc = TocItem[];
 
 /**
  * Extracts TOC headings from markdown file and adds it to the file's data object.
  */
 function remarkTocHeadings() {
-  return (tree: Parent, file) => {
-    let toc: Toc = []
-    visit(tree, 'heading', (node) => {
-      let textContent = toString(node).replace(/<[^>]*(>|$)/g, '')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (tree: Parent, file: any) => {
+    const toc: Toc = [];
+    visit(tree, "heading", (node) => {
+      const textContent = toString(node).replace(/<[^>]*(>|$)/g, "");
       if (textContent) {
         toc.push({
           value: textContent,
-          url: '#' + slug(textContent),
+          url: "#" + slug(textContent),
+
           // @ts-ignore
           depth: node.depth,
-        })
+        });
       }
-    })
-    file.data.toc = toc
-  }
+    });
+    file.data.toc = toc;
+  };
 }
 
 /**
@@ -40,7 +43,7 @@ function remarkTocHeadings() {
  * @return {*}  {Promise<Toc>}
  */
 export async function extractTocHeadings(markdown: string): Promise<Toc> {
-  let vfile = await remark().use(remarkTocHeadings).process(markdown)
+  const vfile = await remark().use(remarkTocHeadings).process(markdown);
   // @ts-ignore
-  return vfile.data.toc
+  return vfile.data.toc;
 }

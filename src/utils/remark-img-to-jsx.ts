@@ -1,43 +1,55 @@
-import type { Parent, Node, Literal } from "unist";
+import type { Node, Parent, Literal } from "unist";
 import { visit } from "unist-util-visit";
 import { sync as sizeOf } from "probe-image-size";
 import fs from "fs";
+import path from "path";
 
 export type ImageNode = Parent & {
   url: string;
   alt: string;
   name: string;
-  attributes: (Literal & { name: string })[];
+  attributes: (Literal & { name: string; value: unknown })[];
 };
 
 /**
- * Converts markdown image nodes to next/image jsx.
- *
+ * Helper: Check if node has children
+ */
+function isParent(node: Node): node is Parent {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return "children" in node && Array.isArray((node as any).children);
+}
+
+/**
+ * remark plugin: Convert markdown image to next/image jsx
  */
 export function remarkImgToJsx() {
   return (tree: Node) => {
     visit(
       tree,
-      // only visit p tags that contain an img element
-      (node: Parent): node is Parent =>
+      (node: Node): node is Parent =>
         node.type === "paragraph" &&
-        node.children.some((n) => n.type === "image"),
-      (node: Parent) => {
+        isParent(node) &&
+        node.children.some((child) => child.type === "image"),
+      (node) => {
+        if (!isParent(node)) return;
+
         const imageNodeIndex = node.children.findIndex(
-          (n) => n.type === "image"
+          (child) => child.type === "image"
         );
-        const imageNode = node.children[imageNodeIndex] as ImageNode;
+        if (imageNodeIndex === -1) return;
 
-        // only local files
-        if (fs.existsSync(`${process.cwd()}/public${imageNode.url}`)) {
-          const dimensions = sizeOf(
-            fs.readFileSync(`${process.cwd()}/public${imageNode.url}`)
-          );
+        const imageNode = node.children[imageNodeIndex] as unknown as ImageNode;
 
-          // Convert original node to next/image
-          (imageNode.type = "mdxJsxFlowElement"),
-            (imageNode.name = "Image"),
-            (imageNode.attributes = [
+        const imagePath = path.join(process.cwd(), "public", imageNode.url);
+
+        if (fs.existsSync(imagePath)) {
+          const dimensions = sizeOf(fs.readFileSync(imagePath));
+
+          // Check if dimensions is not null
+          if (dimensions) {
+            imageNode.type = "mdxJsxFlowElement";
+            imageNode.name = "Image";
+            imageNode.attributes = [
               { type: "mdxJsxAttribute", name: "alt", value: imageNode.alt },
               { type: "mdxJsxAttribute", name: "src", value: imageNode.url },
               {
@@ -50,10 +62,15 @@ export function remarkImgToJsx() {
                 name: "height",
                 value: dimensions.height,
               },
-            ]);
-          // Change node type from p to div to avoid nesting error
-          node.type = "div";
-          node.children[imageNodeIndex] = imageNode;
+            ];
+
+            node.type = "div"; // avoid p > div error in MDX
+            node.children[imageNodeIndex] = imageNode;
+          } else {
+            console.error(
+              `Could not read dimensions for image: ${imageNode.url}`
+            );
+          }
         }
       }
     );

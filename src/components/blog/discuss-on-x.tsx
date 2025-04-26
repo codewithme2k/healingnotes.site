@@ -1,4 +1,4 @@
-import { Link } from '~/components/ui/link'
+import { Link } from "@/components/ui/link";
 
 export function DiscussOnX({ postUrl }: { postUrl: string }) {
   return (
@@ -12,5 +12,5 @@ export function DiscussOnX({ postUrl }: { postUrl: string }) {
         <span className="hidden font-semibold md:inline"> (Twitter)</span>
       </span>
     </Link>
-  )
+  );
 }

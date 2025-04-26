@@ -1,17 +1,24 @@
-import type readingTime from 'reading-time'
-import type { StatsType } from '~/db/schema'
-import { formatDate, getTimeAgo } from '~/utils/misc'
-import { ViewsCounter } from './views-counter'
+import type readingTime from "reading-time";
+
+import { formatDate, getTimeAgo } from "@/utils/misc";
+import { ViewsCounter } from "./views-counter";
+import { StatsType } from "@/generated/prisma";
 
 type BlogMetaProps = {
-  date: string
-  lastmod?: string
-  slug: string
-  type: StatsType
-  readingTime: ReturnType<typeof readingTime>
-}
+  date: string;
+  lastmod?: string;
+  slug: string;
+  type: StatsType;
+  readingTime: ReturnType<typeof readingTime>;
+};
 
-export function BlogMeta({ date, lastmod, type, slug, readingTime }: BlogMetaProps) {
+export function BlogMeta({
+  date,
+  lastmod,
+  type,
+  slug,
+  readingTime,
+}: BlogMetaProps) {
   return (
     <dl>
       <dt className="sr-only">Published on</dt>
@@ -34,5 +41,5 @@ export function BlogMeta({ date, lastmod, type, slug, readingTime }: BlogMetaPro
         <ViewsCounter type={type} slug={slug} />
       </dd>
     </dl>
-  )
+  );
 }

@@ -1,5 +1,5 @@
-import { Link } from '~/components/ui/link'
-import { SITE_METADATA } from '~/data/site-metadata'
+import { Link } from "@/components/ui/link";
+import { SITE_METADATA } from "@/data/site-metadata";
 
 export function EditOnGithub({ filePath }: { filePath: string }) {
   return (
@@ -11,5 +11,5 @@ export function EditOnGithub({ filePath }: { filePath: string }) {
         Edit on <span className="font-semibold">GitHub</span>
       </span>
     </Link>
-  )
+  );
 }

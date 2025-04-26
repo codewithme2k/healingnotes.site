@@ -10,7 +10,7 @@ import {
   TwitterShareButton,
 } from "react-share";
 import { SITE_METADATA } from "@/data/site-metadata";
-import XIcon from "~/icons/x.svg";
+import XIcon from "@/icons/x.svg";
 import { DiscussOnX } from "./discuss-on-x";
 import { EditOnGithub } from "./edit-on-github";
 

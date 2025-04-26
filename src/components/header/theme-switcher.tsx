@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import {
   Menu,
@@ -8,35 +8,35 @@ import {
   Radio,
   RadioGroup,
   Transition,
-} from '@headlessui/react'
-import { Monitor, MoonStar, Sun, SunMoon } from 'lucide-react'
-import { useTheme } from 'next-themes'
-import { Fragment, useEffect, useState } from 'react'
+} from "@headlessui/react";
+import { Monitor, MoonStar, Sun, SunMoon } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Fragment, useEffect, useState } from "react";
 
 const THEMES = [
   {
-    label: 'Light',
-    value: 'light',
+    label: "Light",
+    value: "light",
     icon: Sun,
   },
   {
-    label: 'Dark',
-    value: 'dark',
+    label: "Dark",
+    value: "dark",
     icon: MoonStar,
   },
   {
-    label: 'System',
-    value: 'system',
+    label: "System",
+    value: "system",
     icon: Monitor,
   },
-]
+];
 
 export function ThemeSwitcher() {
-  let [mounted, setMounted] = useState(false)
-  let { theme, setTheme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   // When mounted on client, now we can show the UI
-  useEffect(() => setMounted(true), [])
+  useEffect(() => setMounted(true), []);
 
   return (
     <div className="flex items-center">
@@ -47,7 +47,7 @@ export function ThemeSwitcher() {
         >
           <MenuButton aria-label="Theme switcher">
             {mounted ? (
-              resolvedTheme === 'dark' ? (
+              resolvedTheme === "dark" ? (
                 <MoonStar strokeWidth={1.5} size={22} />
               ) : (
                 <Sun strokeWidth={1.5} size={22} />
@@ -91,5 +91,5 @@ export function ThemeSwitcher() {
         </Transition>
       </Menu>
     </div>
-  )
+  );
 }

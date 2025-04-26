@@ -1,8 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { useEffect } from "react";
-import type { StatsType } from "~/db/schema";
+
 import { useBlogStats, useUpdateBlogStats } from "@/hooks/use-blog-stats";
+import { StatsType } from "@/generated/prisma";
 
 export function ViewsCounter({
   type,

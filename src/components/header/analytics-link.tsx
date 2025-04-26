@@ -1,6 +1,6 @@
-import { AreaChart } from 'lucide-react'
-import { Link } from '~/components/ui/link'
-import { SITE_METADATA } from '~/data/site-metadata'
+import { AreaChart } from "lucide-react";
+import { Link } from "@/components/ui/link";
+import { SITE_METADATA } from "@/data/site-metadata";
 
 export function AnalyticsLink() {
   return (
@@ -12,5 +12,5 @@ export function AnalyticsLink() {
     >
       <AreaChart strokeWidth={1.5} size={22} />
     </Link>
-  )
+  );
 }

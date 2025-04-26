@@ -1,3 +1,12 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "ignorePatterns": [
+    "node_modules/",
+    ".next/",
+    "public/",
+    "src/generated/**/*"
+  ],
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    // Your existing rules
+  }
 }

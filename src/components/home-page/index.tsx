@@ -1,20 +1,20 @@
-import type { Blog, Snippet } from '~/.contentlayer/generated'
-import { ProfileCard } from '~/components/cards/profile'
-import { Container } from '~/components/ui/container'
-import { Twemoji } from '~/components/ui/twemoji'
-import type { CoreContent } from '~/types/data'
-import { Greeting } from './greeting'
-import { Intro } from './intro'
-import { LatestPosts } from './latest-posts'
-import { BlogLinks } from './links'
-import { TypedBios } from './typed-bios'
+import { ProfileCard } from "@/components/cards/profile";
+import { Container } from "@/components/ui/container";
+import { Twemoji } from "@/components/ui/twemoji";
+import type { CoreContent } from "@/types/data";
+import { Greeting } from "./greeting";
+import { Intro } from "./intro";
+import { LatestPosts } from "./latest-posts";
+import { BlogLinks } from "./links";
+import { TypedBios } from "./typed-bios";
+import { Blog, Snippet } from "contentlayer/generated";
 
 export function Home({
   posts,
   snippets,
 }: {
-  posts: CoreContent<Blog>[]
-  snippets: CoreContent<Snippet>[]
+  posts: CoreContent<Blog>[];
+  snippets: CoreContent<Snippet>[];
 }) {
   return (
     <Container as="div" className="pt-4 lg:pt-12">
@@ -25,10 +25,16 @@ export function Home({
             <Intro />
             <TypedBios />
             <div className="mb-6 mt-4 md:mb-8">
-              <p>I started learning to code in 2016 and have been hooked ever since.</p>
+              <p>
+                I started learning to code in 2016 and have been hooked ever
+                since.
+              </p>
               <p>I landed my first job as a Python coding mentor in 2017.</p>
               <p>I have a passion for JS/TS, web dev, and eCommerce.</p>
-              <p>I started this blog to document and share my knowledge & experience.</p>
+              <p>
+                I started this blog to document and share my knowledge &
+                experience.
+              </p>
             </div>
             <BlogLinks />
             <p className="my-6 flex md:my-8">
@@ -48,5 +54,5 @@ export function Home({
         </div>
       )} */}
     </Container>
-  )
+  );
 }
