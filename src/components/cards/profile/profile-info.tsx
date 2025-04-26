@@ -1,11 +1,5 @@
 import { SITE_METADATA } from "@/data/site-metadata";
-import {
-  BriefcaseBusiness,
-  Github,
-  Linkedin,
-  Mail,
-  MapPin,
-} from "lucide-react";
+import { BriefcaseBusiness, Github, Mail, MapPin } from "lucide-react";
 import { Fragment } from "react";
 import XIcon from "@/icons/x.svg";
 import { Twemoji } from "@/components/ui/twemoji";
@@ -26,13 +20,7 @@ const SOCIALS = [
     Icon: () => <Github size={20} strokeWidth={1.5} />,
     umamiEvent: "profile-card-github",
   },
-  {
-    platform: "linkedin",
-    handle: getAccountHandle(SITE_METADATA.linkedin),
-    href: SITE_METADATA.linkedin,
-    Icon: () => <Linkedin size={20} strokeWidth={1.5} />,
-    umamiEvent: "profile-card-linkedin",
-  },
+
   {
     platform: "x",
     handle: getAccountHandle(SITE_METADATA.x),
@@ -48,10 +36,10 @@ export function ProfileCardInfo() {
   return (
     <div className="hidden py-4 md:block md:px-5">
       <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
-        Tuan Anh (Leo) Huynh
+        Quoc Huu Doan
       </h3>
       <h5 className="py-2 text-gray-500 dark:text-gray-400">
-        Learner | Builder
+        Doctor | Builder
       </h5>
       <div className="mb-2 mt-4 space-y-4">
         <div className="flex items-center text-gray-700 dark:text-gray-200">
@@ -60,18 +48,18 @@ export function ProfileCardInfo() {
             CTO & Co-Founder @{" "}
             <a
               target="_blank"
-              href="https://weaverse.io"
+              href="https://madebyhuu.com"
               rel="noreferrer"
               className="underline-offset-4 hover:underline"
             >
-              Weaverse
+              Madebyhuu
             </a>
           </p>
         </div>
         <div className="flex items-center text-gray-700 dark:text-gray-200">
           <MapPin strokeWidth={1.5} size={20} />
           <p className="px-2">
-            [::1]:443 - Ha Noi,
+            [::1]:443 - Ho Chi Minh,
             <span className="absolute ml-1 inline-flex pt-px">
               <Twemoji emoji="flag-vietnam" />
             </span>

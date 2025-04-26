@@ -2,7 +2,6 @@ import type { Config } from "tailwindcss";
 import colors from "tailwindcss/colors";
 import { fontFamily } from "tailwindcss/defaultTheme";
 import type { PluginAPI } from "tailwindcss/types/config";
-// Import the plugins using ES module imports
 import tailwindForms from "@tailwindcss/forms";
 import tailwindTypography from "@tailwindcss/typography";
 const config: Config = {

@@ -5,14 +5,14 @@ export const SITE_METADATA = {
   description:
     "A personal space on the cloud where I document my medical journey, sharing lessons, insights, and resources for fellow doctors and medical students.",
   language: "en-us",
-  theme: "system", // system, dark or light
+  theme: "system",
   siteUrl: "https://healingnotes.site/",
   siteRepo: "https://github.com/codewithme2k/healingnotes.site",
   siteLogo: `${process.env.BASE_PATH || ""}/static/images/logo.jpg`,
   socialBanner: `${
     process.env.BASE_PATH || ""
   }/static/images/twitter-card.jpeg`,
-  email: "contact@leohuynh.dev",
+  email: "tofu.hc@gmail.com",
   github: "https://github.com/codewithme2k",
   x: "https://x.com/codewithme2k",
   facebook: "https://facebook.com/codewithme2k",
