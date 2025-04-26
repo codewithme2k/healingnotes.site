@@ -6,21 +6,52 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:content": "contentlayer2 build"
   },
   "dependencies": {
+    "@giscus/react": "^3.1.0",
+    "@headlessui/react": "^2.2.2",
+    "@octokit/graphql": "^2.1.3",
+    "body-scroll-lock": "^4.0.0-beta.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "contentlayer2": "^0.5.7",
+    "github-slugger": "^2.0.0",
+    "hast-util-from-html-isomorphic": "^2.0.0",
+    "kbar": "^0.1.0-beta.45",
+    "lucide-react": "^0.503.0",
+    "next": "14.2.28",
+    "next-contentlayer2": "^0.5.7",
+    "next-themes": "^0.4.6",
+    "probe-image-size": "^7.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.28"
+    "react-medium-image-zoom": "^5.2.14",
+    "react-share": "^5.2.2",
+    "reading-time": "^1.5.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-citation": "^2.3.1",
+    "rehype-preset-minify": "^7.0.1",
+    "rehype-pretty-code": "^0.14.1",
+    "rehype-slug": "^6.0.0",
+    "remark": "^15.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-github-blockquote-alert": "^1.3.0",
+    "remark-math": "^6.0.0",
+    "shiki": "^3.3.0",
+    "swr": "^2.3.3"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@svgr/webpack": "^8.1.0",
+    "@types/body-scroll-lock": "^3.1.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.28",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.28"
+    "typescript": "^5"
   }
 }
