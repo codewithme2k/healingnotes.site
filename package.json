@@ -15,6 +15,8 @@
     "@headlessui/react": "^2.2.2",
     "@octokit/graphql": "^8.2.2",
     "@prisma/client": "^6.6.0",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
     "body-scroll-lock": "^4.0.0-beta.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -44,6 +46,7 @@
     "remark-math": "^6.0.0",
     "shiki": "^3.3.0",
     "swr": "^2.3.3",
+    "tailwindcss-animate": "^1.0.7",
     "typed.js": "^2.1.0"
   },
   "devDependencies": {

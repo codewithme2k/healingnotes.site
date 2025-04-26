@@ -1,7 +1,10 @@
 import type { Config } from "tailwindcss";
 import colors from "tailwindcss/colors";
 import { fontFamily } from "tailwindcss/defaultTheme";
-
+import type { PluginAPI } from "tailwindcss/types/config";
+// Import the plugins using ES module imports
+import tailwindForms from "@tailwindcss/forms";
+import tailwindTypography from "@tailwindcss/typography";
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -53,14 +56,14 @@ const config: Config = {
       boxShadow: {
         demure: "rgba(0, 0, 0, 0.3) 0 35px 60px -15px",
         "book-pages": `10px 40px 40px -10px #00000030, inset -2px 0 0 gray,
-                        inset -3px 0 0 #dbdbdb, inset -4px 0 0 white, inset -5px 0 0 #dbdbdb,
-                        inset -6px 0 0 white, inset -7px 0 0 #dbdbdb, inset -8px 0 0 white,
-                        inset -9px 0 0 #dbdbdb`,
+                              inset -3px 0 0 #dbdbdb, inset -4px 0 0 white, inset -5px 0 0 #dbdbdb,
+                              inset -6px 0 0 white, inset -7px 0 0 #dbdbdb, inset -8px 0 0 white,
+                              inset -9px 0 0 #dbdbdb`,
         mondegreen: `5px 5px rgba(0, 98, 90, 0.4),
-                      10px 10px rgba(0, 98, 90, 0.3),
-                      15px 15px rgba(0, 98, 90, 0.2),
-                      20px 20px rgba(0, 98, 90, 0.1),
-                      25px 25px rgba(0, 98, 90, 0.05)`,
+                            10px 10px rgba(0, 98, 90, 0.3),
+                            15px 15px rgba(0, 98, 90, 0.2),
+                            20px 20px rgba(0, 98, 90, 0.1),
+                            25px 25px rgba(0, 98, 90, 0.05)`,
       },
       lineHeight: {
         11: "2.75rem",
@@ -101,7 +104,7 @@ const config: Config = {
         70: "70",
         80: "80",
       },
-      typography: ({ theme }: { theme: Theme }) => ({
+      typography: ({ theme }: PluginAPI) => ({
         DEFAULT: {
           css: {
             a: {
@@ -272,6 +275,6 @@ const config: Config = {
       }),
     },
   },
-  plugins: [],
+  plugins: [tailwindForms, tailwindTypography],
 };
 export default config;
