@@ -29,6 +29,6 @@ model Stats {
   ideas     Int       @default(0)
   bullseye  Int       @default(0)
 
-  @@index([type, slug], name: "type_slug_idx")
+  @@unique([type, slug]) // Add a unique constraint on type and slug
   @@map("stats")
 }
