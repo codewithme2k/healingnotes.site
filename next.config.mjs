@@ -7,6 +7,9 @@ const nextConfig = {
       directories: ["./src/generated/prisma"],
     },
   },
+  images: {
+    domains: ["i.scdn.co"], // Thêm domain này vào danh sách các domain hợp lệ
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
