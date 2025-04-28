@@ -14,6 +14,7 @@ export function Banner({
 }) {
   const [path, author, filename] = banner.split("__");
   const handle = path.split("/").pop() || "";
+
   return (
     <div className={clsx("relative", className)}>
       <Credit

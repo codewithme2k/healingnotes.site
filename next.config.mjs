@@ -8,9 +8,13 @@ const nextConfig = {
     },
   },
   images: {
-    domains: ["i.scdn.co"],
-    domains: ["i.gr-assets.com"],
-    domains: ["m.media-amazon.com"],
+    domains: [
+      "i.scdn.co",
+      "unsplash.com",
+      "i.gr-assets.com",
+      "m.media-amazon.com",
+      "images.unsplash.com",
+    ],
   },
   webpack: (config) => {
     config.module.rules.push({
