@@ -1,4 +1,4 @@
-import type { Author, Blog } from "contentlayer/generated";
+import type { Author, Blog, Snippet } from "contentlayer/generated";
 import type { ReactNode } from "react";
 
 import { Banner } from "@/components/blog/banner";
@@ -20,7 +20,7 @@ import { StatsType } from "@/generated/prisma";
 import Reactions from "@/components/blog/reactions";
 
 interface LayoutProps {
-  content: CoreContent<Blog>;
+  content: CoreContent<Blog | Snippet>;
   authorDetails: CoreContent<Author>[];
   next?: { path: string; title: string };
   prev?: { path: string; title: string };
@@ -69,8 +69,8 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
           </div>
         </div>
         <GradientDivider className="mb-2 mt-1" />
-        <div className="grid  lg:grid-cols-12 grid-cols-1 gap-12 pb-10 pt-8  lg:pt-10">
-          <div className="divide-y divide-gray-200 dark:divide-gray-700 lg:col-span-8 xl:col-span-9 col-span-1">
+        <div className="grid grid-cols-1 gap-12 pb-10 pt-8 lg:grid-cols-12 lg:pt-10">
+          <div className="divide-y divide-gray-200 dark:divide-gray-700 lg:col-span-8 xl:col-span-9">
             <div className="prose max-w-none dark:prose-invert lg:prose-lg lg:pb-8">
               {children}
             </div>

@@ -1,4 +1,4 @@
-import type { Blog } from "contentlayer/generated";
+import type { Blog, Snippet } from "contentlayer/generated";
 import type { ReactNode } from "react";
 import { Banner } from "@/components/blog/banner";
 import { BlogMeta } from "@/components/blog/blog-meta";
@@ -16,7 +16,7 @@ import type { CoreContent } from "@/types/data";
 import { StatsType } from "@/generated/prisma";
 
 interface LayoutProps {
-  content: CoreContent<Blog>;
+  content: CoreContent<Blog | Snippet>;
   children: ReactNode;
   next?: { path: string; title: string };
   prev?: { path: string; title: string };

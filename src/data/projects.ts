@@ -32,4 +32,25 @@ export const PROJECTS: Project[] = [
     url: "https://pilot.weaverse.io/",
     builtWith: ["Hydrogen", "Remix", "TailwindCSS", "HeadlessUI"],
   },
+  {
+    type: "self",
+    title: "leohuynh.dev",
+    imgSrc: "/static/images/writer-96.png",
+    repo: "hta218/leohuynh.dev",
+    builtWith: ["NextJS", "TailwindCSS", "Typescript", "Drizzle", "Umami"],
+  },
+  {
+    type: "self",
+    title: "Shopify theme starter",
+    imgSrc: "/static/images/liquid-96.png",
+    repo: "hta218/shopify-theme-starter",
+    builtWith: ["ThemeKit", "Liquid", "Webpack", "TailwindCSS"],
+  },
+  {
+    type: "self",
+    title: "Exercism solutions",
+    imgSrc: "/static/images/average-math-96.png",
+    repo: "hta218/exercism-solutions",
+    builtWith: ["Exercism", "Javascript", "Bash"],
+  },
 ];

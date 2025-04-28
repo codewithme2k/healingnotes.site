@@ -8,7 +8,9 @@ const nextConfig = {
     },
   },
   images: {
-    domains: ["i.scdn.co"], // Thêm domain này vào danh sách các domain hợp lệ
+    domains: ["i.scdn.co"],
+    domains: ["i.gr-assets.com"],
+    domains: ["m.media-amazon.com"],
   },
   webpack: (config) => {
     config.module.rules.push({

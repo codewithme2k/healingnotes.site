@@ -61,7 +61,7 @@ export function FooterMeta() {
       <div className="flex items-center gap-2">
         <Map className="h-5 w-5" />
         <span className="font-medium">
-          [::1]:443 - Ha Noi,{" "}
+          [::1]:443 - Ho Chi Minh,{" "}
           <Twemoji emoji="flag-vietnam" className="!h-4.5" />
         </span>
       </div>

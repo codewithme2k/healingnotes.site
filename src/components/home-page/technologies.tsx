@@ -5,6 +5,7 @@ import { Tab } from "@headlessui/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { skillsData, type Skill } from "@/types/data";
 import IconsBundle from "../social-icons";
+
 function filterSkillsData(skillsData: Skill[]) {
   const acc: Record<string, Skill[]> = { "Most Used": [] };
 
@@ -53,8 +54,8 @@ export function Technologies() {
                   `rounded-md px-4 py-2 text-sm font-medium transition ${
                     selected
                       ? category === "Most Used"
-                        ? "bg-gradient-to-tr from-blue-300 via-sky-300 to-cyan-300 text-slate-900"
-                        : "bg-gray-200 text-gray-900"
+                        ? "bg-green-500 text-slate-900"
+                        : "bg-green-500 text-white"
                       : "bg-gray-100 text-gray-500 hover:bg-gray-200"
                   } ${
                     category === "Most Used" ? "col-span-2 md:col-span-1" : ""

@@ -45,7 +45,7 @@ export function TypedBios() {
           I&apos;m aliased as <span className="font-medium">Leo</span> at work.
         </li>
         <li>I&apos;m a learner, builder, and freedom seeker.</li>
-        <li>I live in Ha Noi, Viet Nam.</li>
+        <li>I live in Ho Chi Minh, Viet Nam.</li>
         <li>I was born in the beautiful Moc Chau plateau.</li>
         <li>My first programming language I learned was Pascal.</li>
         <li>I love web development.</li>
